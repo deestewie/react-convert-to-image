@@ -41,6 +41,14 @@
       "email": "appdevjamworks@gmail.com"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deestewie/react-convert-to-image"
+  },
+  "bugs": {
+    "url": "https://github.com/deestewie/react-convert-to-image/issues"
+  },
+  "homepage": "https://deestewie.github.io/react-convert-to-image",
   "scripts": {
     "clean": "rimraf dist es lib",
     "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
