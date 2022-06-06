@@ -1,0 +1,6 @@
+**/.DS_Store
+.vscode/
+dist/
+esm/
+lib/
+node_modules/
