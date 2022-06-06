@@ -42,6 +42,8 @@
     }
   ],
   "scripts": {
+    "clean": "rimraf dist es lib",
+    "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
     "build:esm": "tsc --module esnext --target esnext --outDir ./esm",
     "build:cjs": "tsc --module commonjs --target es5 --outDir ./lib",
     "build:umd": "rollup -c rollup.config.js -w",
