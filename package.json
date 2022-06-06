@@ -1,6 +1,6 @@
 {
   "name": "react-convert-to-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin to allow the download of any React component in project (whether currently rendered or not) as a image.",
   "main": "dist/react-convert-to-image.js",
   "module": "dist/react-convert-to-image.esm.js",
