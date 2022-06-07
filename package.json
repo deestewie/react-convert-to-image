@@ -1,6 +1,6 @@
 {
   "name": "react-convert-to-image",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin to allow the download of any React component in project (whether currently rendered or not) as a image.",
   "main": "dist/react-convert-to-image.js",
   "module": "dist/react-convert-to-image.esm.js",
@@ -50,6 +50,7 @@
   },
   "homepage": "https://deestewie.github.io/react-convert-to-image",
   "scripts": {
+    "test": "standard && node src/*",
     "clean": "rimraf dist es lib",
     "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
     "build:esm": "tsc --module esnext --target esnext --outDir ./esm",
@@ -60,6 +61,7 @@
     "prepublish": "rm -rf ./dist && npm run build"
   },
   "devDependencies": {
+    "standard": "*",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-typescript": "^8.3.2",
