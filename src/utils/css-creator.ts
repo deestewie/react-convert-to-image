@@ -27,11 +27,11 @@ export function setCSSStyling(
   if (hideComponent) {
     component.setAttribute('aria-hidden', 'true');
     let minZIndex = getTheLowestZIndex();
-    const newMinZIndex = minZIndex === Number.parseFloat('0')?  Number.parseFloat('2'):   Number.parseFloat(`${5 * minZIndex}`);
+    const newMinZIndex = minZIndex === Number.parseFloat('0')?  Number.parseFloat('2'):   Number.parseFloat(`${5 * Math.abs(minZIndex)}`);
     component.style.zIndex = `-${newMinZIndex}`;
   } else {
     const maxZIndex = getTheHighestZIndex();
-    const newMaxZIndex = maxZIndex ===  Number.parseFloat('0')?  Number.parseFloat('2'):  Number.parseFloat(`${5 + maxZIndex}`)
+    const newMaxZIndex = maxZIndex ===  Number.parseFloat('0')?  Number.parseFloat('2'):  Number.parseFloat(`${5 + Math.abs(maxZIndex)}`)
     component.style.zIndex = `${newMaxZIndex}`;
   }
 }
