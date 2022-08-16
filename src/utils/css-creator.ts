@@ -26,10 +26,12 @@ export function setCSSStyling(
 
   if (hideComponent) {
     component.setAttribute('aria-hidden', 'true');
-    const minZIndex = getTheLowestZIndex();
-    component.style.zIndex = `${minZIndex <= 0 ? -10 : minZIndex}`;
+    let minZIndex = getTheLowestZIndex();
+    const newMinZIndex = minZIndex === Number.parseFloat('0')?  Number.parseFloat('2'):   Number.parseFloat(`${5 * Math.abs(minZIndex)}`);
+    component.style.zIndex = `-${newMinZIndex}`;
   } else {
     const maxZIndex = getTheHighestZIndex();
-    component.style.zIndex = `${maxZIndex <= 0 ? 2 : maxZIndex}`;
+    const newMaxZIndex = maxZIndex ===  Number.parseFloat('0')?  Number.parseFloat('2'):  Number.parseFloat(`${5 + Math.abs(maxZIndex)}`)
+    component.style.zIndex = `${newMaxZIndex}`;
   }
 }
