@@ -11,7 +11,7 @@ const extensions = ['.js', '.ts' ];
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
-    input: './src/index.ts',
+    input: './src/index.tsx',
     output: [      
       {
         name: packageJson.name,

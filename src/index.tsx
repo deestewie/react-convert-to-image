@@ -1,21 +1,21 @@
-// import ReactDOM from 'react-dom';
-import * as React from 'react';
-// import * as ReactDOMClient from 'react-dom/client';
+import React, { useRef } from 'react';
 import * as ReactDOM from 'react-dom';
-import * as ReactDOMServer from 'react-dom/server';
 import * as htmlToImage from 'html-to-image';
+import * as ReactDOMServer from 'react-dom/server';
 
 import { DownloadConfig } from './models';
 import { setCSSStyling } from "./utils/css-creator";
 import { downloadFile } from './download-file';
 
-// let root:any = undefined;
 
-const convertToImage = async (downloadConfig: DownloadConfig) => {
-    const component = document.getElementById('download-comp') as HTMLElement;
-    const REACT_MAJOR_VERSION = React.version.split('.')[0];
+const useConvertToImage = (): {
+  downloadElementSnapshot: (downloadConfig: DownloadConfig) => Promise<void>;
+} => { 
 
-    console.log('React: ',REACT_MAJOR_VERSION);
+  const baseImgRef:any = useRef(null);
+
+  const downloadElementSnapshot = async(downloadConfig: DownloadConfig) => {
+        const component = document.getElementById('download-comp') as HTMLElement;
 
       const {
         type,
@@ -29,7 +29,7 @@ const convertToImage = async (downloadConfig: DownloadConfig) => {
     
     const useInnerPlugin = usesInnerPlugin || false;
 
-    console.log(React.version)
+    // console.log(React.version)
     try {
         if (!component)
         throw new NoTagFoundForImageGeneration(
@@ -39,21 +39,24 @@ const convertToImage = async (downloadConfig: DownloadConfig) => {
         setCSSStyling(stylings, component, hideComponentFromView);
 
         if (useInnerPlugin) {
-  
-          // root?.render(componentToConvert);
-           // if (root === undefined) {
-          //     root = ReactDOMClient.createRoot(component);
-          //   }
-           ReactDOM.render(componentToConvert, component);
+            const element =  (
+              <div className="downloadQRefSection">
+                <div ref={baseImgRef} className="downloadQRefSection__qrCodeSection">
+                  {componentToConvert}
+                </div>
+              </div>
+            );
+          ReactDOM.render(element, component);
         } else {
           const staticElement =
             ReactDOMServer.renderToStaticMarkup(componentToConvert);
-          component.innerHTML = `${staticElement}`;
+            component.innerHTML = `${staticElement}`;
         }
 
         const fontEmbed = await htmlToImage.getFontEmbedCSS(component);
-        await downloadFile(component, type, filename, callbacks, {
+        await downloadFile(baseImgRef.current ? baseImgRef.current: component, type, filename, callbacks, {
           fontEmbedCSS: fontEmbed,
+          quality: 0.98
         });
     } finally {
         component.removeAttribute('style');
@@ -61,13 +64,13 @@ const convertToImage = async (downloadConfig: DownloadConfig) => {
 
         ReactDOM.unmountComponentAtNode(component);
         component.innerHTML ='';
-        // root.unmount();
-        // root = undefined;
     }
+  };
 
-}
+  return {
+    downloadElementSnapshot
+  }
 
+};
 
-
-
-export default convertToImage;
+export default useConvertToImage;
