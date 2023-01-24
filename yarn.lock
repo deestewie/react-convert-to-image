@@ -1171,6 +1171,11 @@ eslint-plugin-promise@^6.0.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.0.0.tgz#017652c07c9816413a41e11c30adc42c3d55ff18"
   integrity sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==
 
+eslint-plugin-react-hooks@^5.0.0-next-ee8509801-20230117:
+  version "5.0.0-next-ee8509801-20230117"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-5.0.0-next-ee8509801-20230117.tgz#ae9a960238115b5434c6d0abfa7488b1faea907f"
+  integrity sha512-815bj0hv0bJ0zXw34yPR37F0G2dc19g9OcC4M22ZZagMMfQqTaSEHamWIrEH30ktjp5QtF1ETPwAo+17U2RwoA==
+
 eslint-plugin-react@^7.28.0:
   version "7.30.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.30.0.tgz#8e7b1b2934b8426ac067a0febade1b13bd7064e3"

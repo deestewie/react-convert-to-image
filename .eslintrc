@@ -5,7 +5,8 @@
     "eslint:recommended",
     "prettier",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "env": {
     "es6": true,
@@ -18,16 +19,12 @@
     "requireConfigFile": false
   },
   "rules": {
-    // "no-console":[2, { "allow": ["warn", "error"] }],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "no-nested-ternary": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
     "no-param-reassign": [2, { "props": false }],
-    "prefer-destructuring": [2, { "object": true, "array": false }],
-    "@typescript-eslint/no-namespace": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
-    "@typescript-eslint/no-non-null-assertion": 0
+    "prefer-destructuring": [2, { "object": true, "array": false }]
   }
 }
